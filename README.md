@@ -142,7 +142,7 @@ cargo --version
 - cargo 创建项目
 
 ```shell
-cargo new cargo_egui
+cargo new manage-nexus
 ```
 
 - cargo 构建(编译)
