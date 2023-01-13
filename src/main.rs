@@ -7,6 +7,8 @@
 
 use eframe::egui;
 
+mod base64;
+
 fn main() {
     let options = eframe::NativeOptions::default();
 
