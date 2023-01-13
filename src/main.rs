@@ -76,20 +76,20 @@ fn setup_custom_fonts(ctx: &egui::Context) {
         egui::FontData::from_static(include_bytes!("fonts/SmileySans-Oblique.otf")),
     );
 
-    // Put my font first (highest priority) for proportional text:
+    // 将我的字体放在比例文本的第一位（最高优先级）：
     fonts
         .families
         .entry(egui::FontFamily::Proportional)
         .or_default()
         .insert(0, "my_font".to_owned());
 
-    // Put my font as last fallback for monospace:
+    // 将我的字体作为monospace的最后备用字体：
     fonts
         .families
         .entry(egui::FontFamily::Monospace)
         .or_default()
         .push("my_font".to_owned());
 
-    // Tell egui to use these fonts:
+    // 告诉egui使用这些字体：
     ctx.set_fonts(fonts);
 }
