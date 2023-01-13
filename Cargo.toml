@@ -2,7 +2,19 @@
 name = "manage-nexus"
 version = "0.1.0"
 edition = "2021"
+rust-version = "1.66.1"
+authors = ["徐晓伟 xuxiaowei@xuxiaowei.com.cn"]
+description = "基于 Rust 语言管理 Nexus 仓库的工具"
+homepage = "https://github.com/xuxiaowei-com-cn/manage-nexus"
+repository = "https://github.com/xuxiaowei-com-cn/manage-nexus.git"
+keywords = ["gui", "egui", "nexus", "maven"]
+license = "Apache-2.0"
+readme = "README.md"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+eframe = '0.19.0'
+
+# eframe 内已引入 egui
+# egui = '0.19.0'
