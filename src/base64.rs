@@ -1,5 +1,5 @@
 /**
- * 字符串 转 base64
+ * str 转 base64
  * <p>
  * 来自：https://magiclen.org/base64-stream/
  */
@@ -21,6 +21,7 @@ pub fn str_to_base64(data: &str) -> String {
 
 #[test]
 fn str_to_base64_test() {
-    let result = str_to_base64("Hi there, this is a simple sentence used for testing this crate. I hope all cases are correct.");
+    let data = "Hi there, this is a simple sentence used for testing this crate. I hope all cases are correct.";
+    let result = str_to_base64(data);
     assert_eq!("SGkgdGhlcmUsIHRoaXMgaXMgYSBzaW1wbGUgc2VudGVuY2UgdXNlZCBmb3IgdGVzdGluZyB0aGlzIGNyYXRlLiBJIGhvcGUgYWxsIGNhc2VzIGFyZSBjb3JyZWN0Lg==", result);
 }
