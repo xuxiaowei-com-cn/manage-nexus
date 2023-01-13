@@ -49,6 +49,15 @@ pub fn string_to_basic(username: String, password: String) -> String {
     return "Basic ".to_string() + &base64;
 }
 
+/**
+ * str 计算 basic
+ */
+pub fn str_to_basic(username: &str, password: &str) -> String {
+    let tmp = username.to_string() + ":" + &*password;
+    let base64 = string_to_base64(tmp);
+    return "Basic ".to_string() + &base64;
+}
+
 #[test]
 fn string_to_base64_test() {
     let tmp = "Hi there, this is a simple sentence used for testing this crate. I hope all cases are correct.";
@@ -72,5 +81,14 @@ fn string_to_basic_test() {
     let username = username_str.to_string();
     let password = password_str.to_string();
     let result = string_to_basic(username, password);
+    assert_eq!("Basic eHV4aWFvd2VpOjEyMzQ1Ng==", result);
+}
+
+#[test]
+fn str_to_basic_test() {
+    let username = "xuxiaowei";
+    let password = "123456";
+
+    let result = str_to_basic(username, password);
     assert_eq!("Basic eHV4aWFvd2VpOjEyMzQ1Ng==", result);
 }
