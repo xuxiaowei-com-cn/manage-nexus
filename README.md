@@ -169,6 +169,12 @@ cargo run
 cargo check
 ```
 
+- 测试
+
+```shell
+cargo test
+```
+
 - 文档
 
 ```shell
