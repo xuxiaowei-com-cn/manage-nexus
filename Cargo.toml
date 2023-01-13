@@ -2,7 +2,7 @@
 name = "manage-nexus"
 version = "0.1.0"
 edition = "2021"
-rust-version = "1.66.1"
+rust-version = "1.66.0"
 authors = ["徐晓伟 xuxiaowei@xuxiaowei.com.cn"]
 description = "基于 Rust 语言管理 Nexus 仓库的工具"
 homepage = "https://github.com/xuxiaowei-com-cn/manage-nexus"
