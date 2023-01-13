@@ -1,5 +1,6 @@
 // https://github.com/emilk/egui/blob/0.19.0/examples/hello_world/src/main.rs
 // https://github.com/emilk/egui/blob/0.19.0/examples/custom_font/src/main.rs
+// https://github.com/emilk/egui/blob/0.19.0/examples/file_dialog/src/main.rs
 
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")] // 在版本中隐藏Windows上的控制台窗口
 
@@ -18,6 +19,7 @@ fn main() {
 
 struct Input {
     heading: String,
+    picked_path: Option<String>,
     username: String,
     password: String,
     url: String,
@@ -27,6 +29,7 @@ impl Default for Input {
     fn default() -> Self {
         Self {
             heading: "上传 Maven 依赖".to_owned(),
+            picked_path: Option::from("".to_owned()),
             username: "".to_owned(),
             password: "".to_owned(),
             url: "".to_owned(),
@@ -46,6 +49,21 @@ impl eframe::App for Input {
     fn update(&mut self, ctx: &egui::Context, _frame: &mut eframe::Frame) {
         egui::CentralPanel::default().show(ctx, |ui| {
             ui.heading(&mut self.heading);
+
+            // https://github.com/emilk/egui/blob/0.19.0/examples/file_dialog/src/main.rs
+            if ui.button("选择文件夹").clicked() {
+                if let Some(path) = rfd::FileDialog::new().pick_folder() {
+                    self.picked_path = Some(path.display().to_string());
+                }
+            }
+            if let Some(picked_path) = &self.picked_path {
+                if Option::from("".to_owned()) != self.picked_path {
+                    ui.horizontal(|ui| {
+                        ui.monospace(picked_path);
+                    });
+                }
+            }
+
             ui.horizontal(|ui| {
                 ui.label("用户名: ");
                 ui.text_edit_singleline(&mut self.username);

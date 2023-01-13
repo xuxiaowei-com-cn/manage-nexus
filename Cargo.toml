@@ -18,3 +18,5 @@ eframe = '0.19.0'
 
 # eframe 内已引入 egui
 # egui = '0.19.0'
+
+rfd = "0.10"
